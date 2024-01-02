@@ -299,21 +299,21 @@ JNIEXPORT jint JNI_OnLoad(JavaVM *vm, void *reserved)
     mkdir(g_szCfgPath, 0777);
   #else
     /* Create a folder in /Android/data/.../ */
-    snprintf(g_szAndroidDataRootDir, sizeof(g_szAndroidDataRootDir), "%s/Android/data/%s/", g_szInternalStoragePath, g_szAppName);
+    snprintf(g_szAndroidDataRootDir, sizeof(g_szAndroidDataRootDir), "%s/Android_unprotected/data/%s/", g_szInternalStoragePath, g_szAppName);
     DIR* dir = opendir(g_szAndroidDataRootDir);
     if(dir != NULL) closedir(dir);
     else GetExternalFilesDir(env, appContext);
 
     /* Create "mods" folder in /Android/data/.../ */
-    snprintf(g_szModsDir, sizeof(g_szModsDir), "%s/Android/data/%s/mods/", g_szInternalStoragePath, g_szAppName);
+    snprintf(g_szModsDir, sizeof(g_szModsDir), "%s/Android_unprotected/data/%s/mods/", g_szInternalStoragePath, g_szAppName);
     mkdir(g_szModsDir, 0777);
 
     /* Create "files" folder in /Android/data/.../ */
-    snprintf(g_szAndroidDataDir, sizeof(g_szAndroidDataDir), "%s/Android/data/%s/files/", g_szInternalStoragePath, g_szAppName);
+    snprintf(g_szAndroidDataDir, sizeof(g_szAndroidDataDir), "%s/Android_unprotected/data/%s/files/", g_szInternalStoragePath, g_szAppName);
     mkdir(g_szAndroidDataDir, 0777); // Who knows, right?
 
     /* Create "configs" folder in /Android/data/.../ */
-    snprintf(g_szCfgPath, sizeof(g_szCfgPath), "%s/Android/data/%s/configs/", g_szInternalStoragePath, g_szAppName);
+    snprintf(g_szCfgPath, sizeof(g_szCfgPath), "%s/Android_unprotected/data/%s/configs/", g_szInternalStoragePath, g_szAppName);
     mkdir(g_szCfgPath, 0777);
   #endif
 
